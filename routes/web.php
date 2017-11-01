@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 })->name('home');
 
 Auth::routes();
@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('user', 'UserController');
+
+Route::resource('product', 'ProductController');
 
 Route::get('order', 'OrderController@order')->name('order');
 
