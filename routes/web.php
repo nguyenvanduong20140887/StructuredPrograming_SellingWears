@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index');
 Route::resource('user', 'UserController');
 
 Route::get('order', 'OrderController@order')->name('order');
+Route::get('test', 'TestController@test');
