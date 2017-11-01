@@ -73,7 +73,8 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="user/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a>
+                        <a href="user/{{ Auth::user()->id }}">
+                            {{ Auth::user()->name }}</a>
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">

@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $primaryKey = 'prod_id';
 
-    public function category()
+    public function category_()
     {
     	return $this->belongsTo('App\Model\Category', 'category', 'category');
     }
