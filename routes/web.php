@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('welcome');
+})->name('welcome');
 
 Auth::routes();
 
@@ -21,5 +21,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('user', 'UserController');
 
+Route::resource('product', 'ProductController');
+
 Route::get('order', 'OrderController@order')->name('order');
+
 Route::get('test', 'TestController@test');

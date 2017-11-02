@@ -27,7 +27,7 @@
                 <a href="#">Register</a>
             </li>
             <li class="">
-                <a href="{!! route('order') !!}">Card</a>
+                <a href="{!! route('order') !!}">Cart</a>
             </li>
         </ul>
     </div>
@@ -35,7 +35,7 @@
 	<div id="footer" class="container"> <!-- start of footer -->
         <div>
             <ul class="navigation">
-                <li><a href="{!! route('home') !!}">Home</a></li>
+                <li><a href="{!! route('welcome') !!}">Home</a></li>
                 <li><a href="#">Register</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">About</a></li>
