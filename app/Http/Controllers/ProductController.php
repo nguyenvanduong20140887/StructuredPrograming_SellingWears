@@ -83,4 +83,15 @@ class ProductController extends Controller
     {
         //
     }
+
+    /**
+     * Search for products by title
+     * @param  Request $request include keyword field
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $products = Product::where('title', 'like', '%' . $request->input('keyword') . '%')->get();
+        return view('products.index', ['products' => $products]);
+    }
 }

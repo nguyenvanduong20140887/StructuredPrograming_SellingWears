@@ -19,4 +19,9 @@ class TestController extends Controller
     	// }
     	dd($users);
     }
+
+    public function search(Request $request)
+    {
+    	dd($request);
+    }
 }

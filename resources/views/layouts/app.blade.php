@@ -36,7 +36,7 @@
                     </a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <div class="collapse navbar-collapse navbar-right" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
@@ -72,6 +72,17 @@
                         @endif
                     </ul>
                 </div>
+
+                <form class="navbar-form navbar-right" action="{{ route('product-search') }}" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="keyword">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </nav>
 
