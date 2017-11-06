@@ -3,95 +3,97 @@
 namespace App\Http\Controllers;
 
 use App\Model\Product;
+use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $products = Product::all();
-        return view('products.index', ['products' => $products]);
-    }
+class ProductController extends Controller {
+	protected $product;
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+	/**
+	 * [__construct description]
+	 * @param ProductRepositoryInterface $product [description]
+	 */
+	public function __construct(ProductRepositoryInterface $product) {
+		$this->product = $product;
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index() {
+		$products = $this->product->getAll();
+		return view('products.index', ['products' => $products]);
+	}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Model\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        return view('products.show', ['product' => $product]);
-    }
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create() {
+		//
+	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store(Request $request) {
+		//
+	}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  \App\Model\Product  $product
+	 * @return \Illuminate\Http\Response
+	 */
+	public function show(Product $product) {
+		return view('products.show', ['product' => $product]);
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Model\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
-    {
-        //
-    }
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  \App\Model\Product  $product
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit(Product $product) {
+		//
+	}
 
-    /**
-     * Search for products by title
-     * @param  Request $request include keyword field
-     * @return \Illuminate\Http\Response
-     */
-    public function search(Request $request)
-    {
-        $products = Product::where('title', 'like', '%' . $request->input('keyword') . '%')->get();
-        return view('products.index', ['products' => $products]);
-    }
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \App\Model\Product  $product
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update(Request $request, Product $product) {
+		//
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  \App\Model\Product  $product
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy(Product $product) {
+		//
+	}
+
+	/**
+	 * Search for products by title
+	 * @param  Request $request include keyword field
+	 * @return \Illuminate\Http\Response
+	 */
+	public function search(Request $request) {
+		$products = $this->product->findByAttr('title', 'like', '%' . $request->input('keyword') . '%');
+		return view('products.index', ['products' => $products]);
+	}
 }
