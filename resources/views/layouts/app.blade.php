@@ -75,6 +75,16 @@
 
                 <form class="navbar-form navbar-right" action="{{ route('product-search') }}" method="GET">
                     <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                @foreach ($products as $prod)
+                                    <li><a href="">{{ $prod->title }}</a></li>
+                                @endforeach
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
                         <input type="text" class="form-control" placeholder="Search" name="keyword">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit">

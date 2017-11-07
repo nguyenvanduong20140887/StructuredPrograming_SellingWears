@@ -7,8 +7,6 @@ use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller {
-	protected $product;
-
 	/**
 	 * [__construct description]
 	 * @param ProductRepositoryInterface $product [description]
@@ -93,7 +91,7 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function search(Request $request) {
-		$products = $this->product->findByAttr('title', 'like', '%' . $request->input('keyword') . '%');
+		$products = $this->product->search($request->input('keyword'));
 		return view('products.index', ['products' => $products]);
 	}
 }
