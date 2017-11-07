@@ -42,7 +42,7 @@
                     </a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <div class="collapse navbar-collapse navbar-right" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
@@ -79,6 +79,27 @@
                         <li><a href="{{ route('order') }}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
                     </ul>
                 </div>
+
+                <form class="navbar-form navbar-right" action="{{ route('product-search') }}" method="GET">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                @foreach ($products as $prod)
+                                    <li><a href="">{{ $prod->title }}</a></li>
+                                @endforeach
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search" name="keyword">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </nav>
 

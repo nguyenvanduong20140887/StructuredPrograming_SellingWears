@@ -21,6 +21,9 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('user', 'UserController');
 
+// Product's route
+Route::get('product/search', 'ProductController@search')->name('product-search');
+
 Route::resource('product', 'ProductController');
 
 Route::get('order', 'OrderController@order')->name('order');
