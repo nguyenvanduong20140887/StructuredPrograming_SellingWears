@@ -10,7 +10,7 @@
 	    @foreach ($products as $prod)
 		    <div class="col-sm-6 col-md-4">
 		    	<div class="thumbnail">
-		    		<a href="product/{{ $prod->prod_id }}">
+		    		<a href="{{ url('product/' . $prod->prod_id) }}">
 					<img src="http://keithmackay.com/images/picture.jpg" alt="default product image">
 					</a>
 					<div class="caption">
