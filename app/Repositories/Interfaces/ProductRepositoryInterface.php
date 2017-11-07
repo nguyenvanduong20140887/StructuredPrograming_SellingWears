@@ -9,6 +9,6 @@
 
 namespace App\Repositories\Interfaces;
 
-interface ProductRepositoryInterface{
+interface ProductRepositoryInterface {
 	// interface will be written here
 }
