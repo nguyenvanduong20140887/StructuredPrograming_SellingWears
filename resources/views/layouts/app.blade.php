@@ -85,9 +85,9 @@
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                @foreach ($products as $prod)
+                                {{-- @foreach ($products as $prod)
                                     <li><a href="">{{ $prod->title }}</a></li>
-                                @endforeach
+                                @endforeach --}}
                               <li role="separator" class="divider"></li>
                               <li><a href="#">Separated link</a></li>
                             </ul>
