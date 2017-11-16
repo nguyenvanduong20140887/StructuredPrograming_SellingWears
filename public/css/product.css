@@ -160,5 +160,10 @@ img {
     opacity: 1;
     -webkit-transform: scale(1);
             transform: scale(1); } }
-
+.a-add-to-cart{
+  color: #ffff;
+}
+.item-cart{
+  margin-bottom: 15px;
+}
 /*# sourceMappingURL=style.css.map */

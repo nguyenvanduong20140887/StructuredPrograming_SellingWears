@@ -11,9 +11,11 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-theme.min.css') }}">
+        
         <!-- Bootstrap -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
         <!-- Styles -->
         <style>
             html, body {
@@ -88,6 +90,7 @@
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
                     @endif
+                    <a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
                 </div>
             @endif
 
@@ -103,7 +106,11 @@
                 </div>
             </div>
         </div>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
         <!-- Scripts -->
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

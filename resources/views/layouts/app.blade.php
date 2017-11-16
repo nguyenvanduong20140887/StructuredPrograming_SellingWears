@@ -10,6 +10,9 @@
 
     @yield('title')
 
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-theme.min.css') }}"> 
+    <link href="{{ asset('css/masterstyle.css') }}" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -70,6 +73,7 @@
                                 </ul>
                             </li>
                         @endif
+                        <li><a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
                     </ul>
                 </div>
 
@@ -97,9 +101,21 @@
         </nav>
 
         @yield('content')
+        <div class="content">
+            <div class="links">
+                <a href="/product">Products</a>
+                <a href="/search">Search</a>
+                <a href="/about">About</a>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
