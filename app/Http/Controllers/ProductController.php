@@ -32,7 +32,6 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		//
 		$categories = Category::all();
 		return view('products.create', ['categories' => $categories]);
 	}
@@ -72,8 +71,9 @@ class ProductController extends Controller {
 	 * @param  \App\Model\Product  $product
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit(Product $product) {
-		//
+	public function edit(Product $product) { // nguyen mau cho nay la j Duong o tren co mo ta day
+		// $product = Product::findOrFail($id);
+		return view('products.edit', ['product' => $product]);
 	}
 
 	/**
@@ -83,8 +83,20 @@ class ProductController extends Controller {
 	 * @param  \App\Model\Product  $product
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, Product $product) {
-		//
+	public function update(Request $request, $id) {
+		$this->validate($request, [
+		 	'title' => 'required',
+		 	'category' => 'required',
+		 	'actor' => 'required',
+		 	'price' => 'required|numeric',
+		 ]);
+
+		$prod = Product::find($id);
+		if($prod){
+			$prod->update($request->all());
+		}
+		$products = $this->product->getAll();
+		return view('products.index', ['products' => $products]);
 	}
 
 	/**
@@ -93,8 +105,11 @@ class ProductController extends Controller {
 	 * @param  \App\Model\Product  $product
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy(Product $product) {
-		//
+	public function destroy($id) {
+		$prod = Product::find($id);
+		$prod->delete();
+		$products = $this->product->getAll();
+		return view('products.index', ['products' => $products]);
 	}
 
 	/**
@@ -107,3 +122,4 @@ class ProductController extends Controller {
 		return view('products.index', ['products' => $products]);
 	}
 }
+

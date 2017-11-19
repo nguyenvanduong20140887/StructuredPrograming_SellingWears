@@ -18,6 +18,14 @@
 						<p>Category : <b>{{ $prod->category_->category_name }}</b></p>
 						<h5>Brand : <b>{{ $prod->actor }}</b></h5>
 						<h5>Price : <b>{{ $prod->price }} $</b></h5>
+						@if (auth()->user())
+							@if (auth()->user()->isAdmin())
+								<h5>
+									<a href="{{ route('product.edit', $prod->prod_id) }}">Edit</a>
+									<a href="{{ route('product.delete', ['id' => $prod->prod_id]) }}">Delete</a>
+								</h5>
+							@endif
+						@endif
 					</div>
 			    </div>
 			</div>

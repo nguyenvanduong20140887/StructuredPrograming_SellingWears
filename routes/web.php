@@ -28,7 +28,8 @@ Route::get('product/search', 'ProductController@search')->name('product-search')
 
 // Route::get('product/store', 'ProductController@store')->name('product-store');
 
-Route::resource('product', 'ProductController');
+Route::post('product/{id}', 'ProductController@update')->name('product.update');
+Route::resource('product', 'ProductController', ['except' => ['update']]);
 
 Route::get('cart', 'OrderController@order')->name('cart');
 
@@ -39,3 +40,10 @@ Route::get('addtocart/{prod_id}', 'CartController@addToCart')->name('product-add
 Route::get('deletefromcart/{prod_id}', 'CartController@deleteFromCart')->name('product-deletefromcart');
 
 Route::get('proceedtocheckout', 'CartController@proceedToCheckout')->name('proceedtocheckout');
+
+// Route::get('/product/edit/', 'ProductController@edit')->name('product.edit');
+
+// Route::post('/product/', 'ProductController@update')->name('product.update');
+
+Route::get('delete/{id}', 'ProductController@destroy')->name('product.delete');
+//Route::resource('product', 'ProductController', ['except' => ['delete']]);
