@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Product;
+use App\Model\Category;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,8 @@ class ProductController extends Controller {
 	 */
 	public function create() {
 		//
+		$categories = Category::all();
+		return view('products.create', ['categories' => $categories]);
 	}
 
 	/**
@@ -42,6 +45,15 @@ class ProductController extends Controller {
 	 */
 	public function store(Request $request) {
 		//
+		// dd($request);
+		$title = $request->input('inputTitle');
+		$actor = $request->input('inputActor');
+		$price = $request->input('inputPrice');
+
+		$product = ['category' => 1, 'title' => $title, 'actor' => $actor, 'price' => $price];
+
+		$result = $this->product->create($product);
+		return redirect('product/'.$result->prod_id);
 	}
 
 	/**

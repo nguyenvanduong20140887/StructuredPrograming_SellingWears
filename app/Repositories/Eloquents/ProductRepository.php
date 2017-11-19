@@ -41,4 +41,11 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
 	public function search($keyword = '') {
 		return $this->findByAttr('title', 'like', '%' . $keyword . '%');
 	}
+
+	// public function store($product) {
+	// 	Product::create(['title' => $product['inputTitle'], 
+	// 					 'actor' => $product['inputActor'], 
+	// 					 'price' => $product['inputPrice'] 
+	// 					]);
+	// }
 }

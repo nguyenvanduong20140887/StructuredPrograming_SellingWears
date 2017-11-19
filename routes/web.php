@@ -24,6 +24,10 @@ Route::resource('user', 'UserController');
 // Product's route
 Route::get('product/search', 'ProductController@search')->name('product-search');
 
+// Route::get('product/create', 'ProductController@create')->name('product-create');
+
+// Route::get('product/store', 'ProductController@store')->name('product-store');
+
 Route::resource('product', 'ProductController');
 
 Route::get('cart', 'OrderController@order')->name('cart');
